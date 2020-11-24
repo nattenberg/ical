@@ -71,6 +71,11 @@ class IEvent extends ICalendarElement with EventToDo {
     if (transparency != null) {
       out.writeln('TRANSP:$transparency');
     }
+    if (organizer != null) {
+      out.writeln('ORGANIZER;' +
+          (organizer?.name + ':' ?? '') +
+          (organizer?.email ?? ''));
+    }
 
     out
       ..writeln('STATUS:$status')
